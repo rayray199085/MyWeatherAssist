@@ -100,11 +100,7 @@ Widget passwordLogin({
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                onPressed: () {
-                  if (state.formState.currentState!.validate()) {
-                    logic.clickLoginButton();
-                  }
-                },
+                onPressed: logic.clickLoginButton,
                 child: RichText(
                   text: TextSpan(
                     text: 'LOGIN',

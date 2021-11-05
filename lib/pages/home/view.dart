@@ -21,31 +21,35 @@ class HomePage extends StatelessWidget {
             text: 'Home',
             style: TextStyle(
               color: AppColors.appbarColor,
-              fontSize: ScreenUtil().setSp(AppFonts.h3),
+              fontSize: ScreenUtil().setSp(AppFonts.h2),
               fontWeight: FontWeight.w500,
             ),
           ),
         ),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            primary: AppColors.primaryColor,
-            padding: EdgeInsets.symmetric(
-              horizontal: 15,
-              vertical: 10,
+        actions: [
+          TextButton(
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.only(right: 15),
             ),
-          ),
-          onPressed: logic.logout,
-          child: RichText(
-            text: TextSpan(
-              text: 'Logout',
-              style: TextStyle(
-                color: AppColors.appbarColor,
-                fontSize: ScreenUtil().setSp(AppFonts.h3),
-                fontWeight: FontWeight.w500,
+            onPressed: logic.logout,
+            child: RichText(
+              text: TextSpan(
+                text: 'Logout',
+                style: TextStyle(
+                  color: AppColors.appbarColor,
+                  fontSize: ScreenUtil().setSp(AppFonts.h5),
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
+          )
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(15),
+          child: Column(
+            children: [],
           ),
         ),
       ),

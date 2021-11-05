@@ -15,18 +15,20 @@ class LoginLogic extends GetxController {
   }
 
   void clickLoginButton() async {
-    EasyLoading.show();
-    bool res = await verifyCredentials(
-        username: state.usernameController.text,
-        password: state.passwordController.text);
-    EasyLoading.dismiss();
-    if (res) {
-      PageService()
-          .preferences
-          .setString(ACCESS_TOKEN, DateTime.now().toIso8601String());
-      Get.offAllNamed(Routes.HOME);
-    } else {
-      showToast('Username or password is incorrect.');
+    if (state.formState.currentState!.validate()) {
+      EasyLoading.show();
+      bool res = await verifyCredentials(
+          username: state.usernameController.text,
+          password: state.passwordController.text);
+      EasyLoading.dismiss();
+      if (res) {
+        PageService()
+            .preferences
+            .setString(ACCESS_TOKEN, DateTime.now().toIso8601String());
+        Get.offAllNamed(Routes.HOME);
+      } else {
+        showToast('Username or password is incorrect.');
+      }
     }
   }
 
