@@ -21,7 +21,7 @@ Widget passwordLogin({
           text: TextSpan(
             text: 'Please Login',
             style: TextStyle(
-              color: AppColors.primaryColor,
+              color: AppColors.grey1,
               fontSize: ScreenUtil().setSp(AppFonts.h3),
               fontWeight: FontWeight.bold,
             ),
@@ -126,7 +126,7 @@ Widget passwordLogin({
             text:
                 'This application is only available to existing MyWeatherAssist customers who must use their Username and Password to gain access.',
             style: TextStyle(
-              color: AppColors.primaryColor,
+              color: AppColors.grey1,
               fontSize: ScreenUtil().setSp(AppFonts.h6),
             ),
           ),

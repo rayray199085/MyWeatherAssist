@@ -4,6 +4,7 @@ import 'package:my_weather_assist/pages/login/components/password_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'logic.dart';
 import 'state.dart';
@@ -39,10 +40,12 @@ class LoginPage extends StatelessWidget {
                   title: RichText(
                     text: TextSpan(
                       text: 'MyWeatherAssist',
-                      style: TextStyle(
-                        color: AppColors.primaryColor,
-                        fontSize: ScreenUtil().setSp(AppFonts.h1),
-                        fontWeight: FontWeight.w800,
+                      style: GoogleFonts.donegalOne(
+                        textStyle: TextStyle(
+                          color: AppColors.primaryColor,
+                          fontSize: ScreenUtil().setSp(AppFonts.h1),
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                   ),

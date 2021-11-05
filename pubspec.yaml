@@ -43,6 +43,7 @@ dev_dependencies:
   get: ^4.3.8                  # get x
   intl: ^0.17.0                # format number, date...
   shared_preferences: ^2.0.8   # local storage
+  google_fonts: ^2.1.0         # fonts
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
