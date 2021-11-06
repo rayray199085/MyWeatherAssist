@@ -1,10 +1,13 @@
 import 'package:get/get.dart';
+import 'package:my_weather_assist/api/weather_api.dart';
 import 'package:my_weather_assist/config/app_shared_key.dart';
+import 'package:my_weather_assist/entities/weather.dart';
 import 'package:my_weather_assist/pages/page_service.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:my_weather_assist/routes/app_pages.dart';
 import 'package:my_weather_assist/utils/toast.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import 'state.dart';
 
@@ -14,11 +17,31 @@ class HomeLogic extends GetxController {
   final HomeState state = HomeState();
 
   @override
-  void onInit() {
-    super.onInit();
-    getCurrentPosition((pos) {
-      print(pos);
+  void onReady() {
+    super.onReady();
+    getCurrentPosition((pos) async {
+      EasyLoading.show();
+      WeatherData? weatherData = await WeatherApi.fetchPositionWeatherData(
+              latitude: pos.latitude, longitude: pos.longitude)
+          .catchError((e) {
+        print(e.toString());
+        showToast(e.toString());
+      });
+      EasyLoading.dismiss();
+      if (weatherData != null) {}
     });
+  }
+
+  void searchCityNameWeather() async {
+    EasyLoading.show();
+    WeatherData? weatherData = await WeatherApi.fetchCityNameWeatherData(
+            cityName: state.cityNameController.text.trim())
+        .catchError((e) {
+      print(e.toString());
+      showToast(e.toString());
+    });
+    EasyLoading.dismiss();
+    if (weatherData != null) {}
   }
 
   Future<void> logout() async {
@@ -53,6 +76,7 @@ class HomeLogic extends GetxController {
           'Location permissions are permanently denied, we cannot request permissions.');
       return;
     }
+    state.enabledPosition.value = true;
     Position position = await Geolocator.getCurrentPosition();
     callback(position);
   }
