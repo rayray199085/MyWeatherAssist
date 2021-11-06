@@ -28,7 +28,10 @@ class HomeLogic extends GetxController {
         showToast(e.toString());
       });
       EasyLoading.dismiss();
-      if (weatherData != null) {}
+      if (weatherData != null) {
+        state.weatherData.value = weatherData;
+        state.weatherData.refresh();
+      }
     });
   }
 
@@ -41,7 +44,10 @@ class HomeLogic extends GetxController {
       showToast(e.toString());
     });
     EasyLoading.dismiss();
-    if (weatherData != null) {}
+    if (weatherData != null) {
+      state.weatherData.value = weatherData;
+      state.weatherData.refresh();
+    }
   }
 
   Future<void> logout() async {
