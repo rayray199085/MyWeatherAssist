@@ -87,12 +87,18 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Obx(() {
-        return SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(15),
-            child: state.weatherData.value != null
-                ? _getWeatherContent()
-                : RichText(
+        return state.weatherData.value != null
+            ? SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: _getWeatherContent(),
+                ),
+              )
+            : Padding(
+                padding: EdgeInsets.all(15),
+                child: Center(
+                  child: RichText(
+                    textAlign: TextAlign.center,
                     text: TextSpan(
                       text: 'Please enter the city name you want to search.',
                       style: TextStyle(
@@ -102,8 +108,8 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-          ),
-        );
+                ),
+              );
       }),
     );
   }
