@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 import 'package:my_weather_assist/routes/app_pages.dart';
 import 'package:my_weather_assist/shared/logger/logger_utils.dart';
 
-class MyLeaseApp extends StatelessWidget {
+class MyWeatherAssistApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

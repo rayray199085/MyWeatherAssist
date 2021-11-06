@@ -10,5 +10,5 @@ void main() async {
     var style = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(style);
   }
-  runApp(MyLeaseApp());
+  runApp(MyWeatherAssistApp());
 }
